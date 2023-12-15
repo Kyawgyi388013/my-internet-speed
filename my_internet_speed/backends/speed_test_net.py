@@ -8,10 +8,10 @@ from my_internet_speed.models import Result
 
 class SpeedTest(SpeedTestBase):
     def run(self):
-        self.client = Speedtest()
-        self.client.get_best_server()
-        self.client.download()
-        self.client.upload()
+        self.client = Speedtest(99)
+        self.client.get_best_server(99)
+        self.client.download(99)
+        self.client.upload(99)
 
         result = self.client.results.dict()
         fields = set(Result._meta.fields)  # noqa
